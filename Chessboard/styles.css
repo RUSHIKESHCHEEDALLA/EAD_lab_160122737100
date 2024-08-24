@@ -4,11 +4,9 @@
     width: 400px; /* Set the width of the chessboard */
     margin: 0 auto; /* Center the chessboard */
 }
-
 .row1, .row2, .row3, .row4, .row5, .row6, .row7, .row8 {
     display: flex;
 }
-
 .square {
     width: 50px;
     height: 50px;
@@ -16,15 +14,12 @@
     justify-content: center;
     align-items: center;
 }
-
 .dark {
     background-color: #769656; /* Dark green square color */
 }
-
 .light {
     background-color: #eeeed2; /* Light beige square color */
 }
-
 .square img {
     width: 90%; /* Adjust the image to fit within the square */
     height: auto;
