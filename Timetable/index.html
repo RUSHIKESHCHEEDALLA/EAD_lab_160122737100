@@ -1,0 +1,184 @@
+HTML CODE 
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+ <meta charset="UTF-8"> 
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <title>Timetable Grid</title> 
+ <!-- Bootstrap CSS --> 
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"> 
+ <style> 
+ /* Overall page styling */ 
+ body { 
+ font-family: 'Arial', sans-serif;
+ background-color: #f4f7f9;
+ padding: 20px;
+ } 
+ .timetable { 
+ width: 100%;
+ border-collapse: collapse;
+ margin: 20px 0;
+ font-size: 1.1em;
+ min-width: 100%;
+ box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+ } 
+ .timetable th, 
+ .timetable td { 
+ padding: 12px 15px;
+ text-align: center;
+ border: 1px solid #ddd;
+ } 
+ .timetable th { 
+ background-color: #3f7cac;
+ color: #fff;
+ text-transform: uppercase;
+ letter-spacing: 0.1em;
+ font-size: 0.9em;
+ } 
+ .timetable td { 
+ background-color: #ffffff;
+ } 
+ .lunch-break { 
+ background-color: #eaf2f8;
+ font-weight: bold;
+ writing-mode: vertical-rl;
+ transform: rotate(180deg);
+ padding: 30px 10px;
+ font-size: 1.2em;
+ border-left: 3px solid #333;
+ border-right: 3px solid #333;
+ text-align: center;
+ } 
+ .time-cell { 
+ background-color: #f0f8ff;
+ font-weight: bold;
+ color: #555;
+ } 
+ .empty-cell { 
+ background-color: #fff;
+ } 
+ /* Hover effect for timetable rows */ 
+ .timetable tbody tr:hover { 
+ background-color: #f4f4f4;
+ } 
+ /* Header row background */ 
+ .timetable thead th { 
+ background-color: #09e2fa;
+ color: #fff;
+ } 
+ /* Styling for specific days */ 
+ .timetable td:nth-child(odd) { 
+ background-color: #f9f9f9;
+ } 
+ .timetable td:nth-child(even) { 
+ background-color: #fff;
+ } 
+ /* Custom cell styling for labs */ 
+ .lab-cell { 
+ background-color: #f9ebae;
+ font-weight: bold;
+ } 
+ /* Media query for responsiveness */ 
+ @media (max-width: 768px) { 
+ .timetable thead { 
+ display: none;
+ } 
+ .timetable, 
+ .timetable tbody, 
+ .timetable tr, 
+ .timetable td { 
+ display: block;
+ width: 100%;
+ } 
+ .timetable tr { 
+ margin-bottom: 15px;
+ } 
+ .timetable td { 
+ text-align: right;
+ padding-left: 50%;
+ position: relative;
+ } 
+ .timetable td::before { 
+ content: attr(data-label);
+ position: absolute;
+ left: 0;
+ width: 50%;
+ padding-left: 15px;
+ font-weight: bold;
+ text-align: left;
+ } 
+ } 
+ </style> 
+</head> 
+<body> 
+ <div class="container mt-5"> 
+ <table class="table timetable"> 
+ <thead> 
+ <tr> 
+ <th class="empty-cell">Period</th> 
+ <th class="time-cell">9:10 AM to 10:10 AM</th> 
+ <th class="time-cell">10:10 AM to 11:10 AM</th> 
+ <th class="time-cell">11:15 AM to 12:15 PM</th> 
+ <th class="lunch-break">Lunch Break<br>12:15 PM to 1:00 PM</th> 
+ <th class="time-cell">1:00 PM to 2:00 PM</th> 
+ <th class="time-cell">2:00 PM to 3:00 PM</th> 
+ <th class="time-cell">3:00 PM to 4:00 PM</th> 
+ </tr> 
+ </thead> 
+ <tbody> 
+ <tr> 
+ <td>Monday</td> 
+ <td>SE</td> 
+ <td>FLAT</td> 
+ <td>EAD</td> 
+ <td class="lunch-break" rowspan="6">Lunch Break</td> 
+ <td>PE-2</td> 
+ <td>CN</td> 
+ <td>ML</td> 
+ </tr> 
+ <tr> 
+ <td>Tuesday</td> 
+ <td>PE-2</td> 
+ <td colspan="2" class="lab-cell">CT Lab(B1) / ML Lab(B2)</td> 
+ <td>CN</td> 
+ <td colspan="2" class="lab-cell">CC Lab(B1) / Library Sports(B2)</td> 
+ </tr> 
+ <tr> 
+ <td>Wednesday</td> 
+ <td>EAD</td> 
+ <td>ML</td> 
+ <td class="lab-cell">CN Lab (B1) / EAD Lab (B2)</td> 
+ <td class="lab-cell">CN Lab (B1) / EAD Lab (B2)</td> 
+ <td>SE</td> 
+ <td>FLAT</td> 
+ </tr> 
+ <tr> 
+ <td>Thursday</td> 
+ <td colspan="2" class="lab-cell">CT Lab(B2) / ML Lab(B1)</td> 
+ <td>CN</td> 
+ <td>SE</td> 
+ <td colspan="2" class="lab-cell">CN Lab(B2) / EAD Lab(B1)</td> 
+ </tr> 
+ <tr> 
+ <td>Friday</td> 
+ <td>FLAT</td> 
+ <td>ML</td> 
+ <td>PE-2</td> 
+ <td>EAD</td> 
+ <td colspan="2" class="lab-cell">CC Lab(B2) / Library Sports(B1)</td> 
+ </tr> 
+ <tr> 
+ <td>Saturday</td> 
+ <td>Mentoring</td> 
+ <td colspan="2" class="lab-cell">Online</td>
+ <td colspan="3" class="lab-cell">Classes</td>
+ </tr> 
+ </tbody> 
+ </table> 
+ </div> 
+ <!-- Bootstrap JS and dependencies --> 
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> 
+ <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script> 
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+</body> 
+</html>
