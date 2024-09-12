@@ -1,19 +1,19 @@
 import { useState, useEffect } from 'react';
 
-function App() {
+function Timer() {
   // Set the initial state for the timer (start at 10 seconds)
-  const [time, setTime] = useState(100);
+  const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
   // This will run every second to decrement the timer
   useEffect(() => {
     let interval = null;
 
-    if (isActive && time > 0) {
+    if (isActive && time >= 0) {
       interval = setInterval(() => {
-        setTime((prevTime) => prevTime - 1);
+        setTime((prevTime) => prevTime + 1);
       }, 1000);
-    } else if (time === 0) {
+    } else if (time < 0) {
       clearInterval(interval); // Stop the timer when it reaches zero
     }
 
@@ -27,13 +27,14 @@ function App() {
 
   // Reset the timer to the initial value
   const resetTimer = () => {
-    setTime(10);
+    setTime(0);
     setIsActive(false);
   };
 
   return (
     <div style={{ textalign: 'center', marginTop: '50px' }}>
-      <h1>Timer: {time} seconds</h1>
+        <h1>TIMER</h1>
+      <h1>{time} seconds</h1>
       <button onClick={toggleTimer}>
         {isActive ? 'Pause' : 'Start'}
       </button>
@@ -44,4 +45,4 @@ function App() {
   );
 }
 
-export default App;
+export default Timer;
