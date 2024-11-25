@@ -15,7 +15,7 @@
     align-items: center;
 }
 .dark {
-    background-color: #769656; /* Dark green square color */
+    background-color: black; /* Dark green square color */
 }
 .light {
     background-color: #eeeed2; /* Light beige square color */

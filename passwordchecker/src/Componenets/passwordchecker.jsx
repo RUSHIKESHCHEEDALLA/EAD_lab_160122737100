@@ -17,7 +17,7 @@ const PasswordChecker = () => {
 
     // Determine the strength message
     switch (strength) {
-      case 0:
+
       case 1:
         setStrengthMessage("Very Weak");
         break;

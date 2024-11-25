@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 
 function Timer() {
-  // Set the initial state for the timer (start at 10 seconds)
+
   const [time, setTime] = useState(0);
   const [isActive, setIsActive] = useState(false);
 
-  // This will run every second to decrement the timer
+
   useEffect(() => {
     let interval = null;
 
@@ -14,13 +14,13 @@ function Timer() {
         setTime((prevTime) => prevTime + 1);
       }, 1000);
     } else if (time < 0) {
-      clearInterval(interval); // Stop the timer when it reaches zero
+      clearInterval(interval); 
     }
 
-    return () => clearInterval(interval); // Cleanup the interval on component unmount
+    return () => clearInterval(interval); 
   }, [isActive, time]);
 
-  // Start or pause the timer
+  
   const toggleTimer = () => {
     setIsActive(!isActive);
   };
